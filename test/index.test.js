@@ -40,7 +40,20 @@ describe("Financial calculations: ", () => {
 
   describe("Net Profit Margin: ", () => {
     it("should calculate Net Profit Margin", () => {
-      it.todo("calculate Net Profit Margin")
+      const revenue = testData
+        .filter(account => account.account_category === 'revenue')
+        .reduce((sum, account) => sum + account.total_value, 0);
+      const expenses = testData
+        .filter(account => account.account_category === 'expense')
+        .reduce((sum, account) => sum + account.total_value, 0);
+      const netProfitMargin = revenue ? ((revenue - expenses) / revenue) * 100 : 0;
+      expect(netProfitMargin).toBeCloseTo(60);
+    });
+  });
+
+  describe("Working Capital Ratio: ", () =>{
+    it("should calculate Working Capital Ratio", () => {
+      it.todo("calculate Working Capital Ratio")
     });
   });
 });

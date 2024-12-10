@@ -19,9 +19,13 @@ const grossProfitMargin = (() => {
   return (salesDebit / revenue) * 100 || 0;
 })();
 
+// calculate net profit margin
+const netProfitMargin = ((expenses - revenue) / revenue) * 100 || 0;
+
 const formatter = new Intl.NumberFormat('en-US');
 
 
 console.log(`Revenue: $${formatter.format(revenue.toFixed(0))}`);
 console.log(`Expenses: $${formatter.format(expenses.toFixed(0))}`);
 console.log(`Gross Profit Margin: ${grossProfitMargin.toFixed(1)}%`);
+console.log(`Net Profit Margin: ${netProfitMargin.toFixed(1)}%`);
