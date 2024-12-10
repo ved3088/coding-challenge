@@ -23,7 +23,7 @@ The Working Capital Ratio measures liquidity and financial health and is calcula
 
 
 ## Instructions to run the project
-– Clone the repository locally
-– Run npm install to install necessary dependancies
-– Run npm start to run the application
-– Run npm test to run the test 
+* Clone the repository locally
+* Run npm install to install necessary dependancies
+* Run npm start to run the application
+* Run npm test to run the test 
