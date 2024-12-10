@@ -53,7 +53,31 @@ describe("Financial calculations: ", () => {
 
   describe("Working Capital Ratio: ", () =>{
     it("should calculate Working Capital Ratio", () => {
-      it.todo("calculate Working Capital Ratio")
+      const assets = testData
+      .filter(
+        account =>
+          account.account_category === 'assets' &&
+          ['current', 'bank', 'current_accounts_receivable'].includes(account.account_type)
+      )
+      .reduce((sum, account) => {
+        return account.value_type === 'debit'
+          ? sum + account.total_value
+          : sum - account.total_value;
+      }, 0);
+
+    const liabilities = testData
+      .filter(
+        account =>
+          account.account_category === 'liability' &&
+          ['current', 'current_accounts_payable'].includes(account.account_type)
+      )
+      .reduce((sum, account) => {
+        return account.value_type === 'credit'
+          ? sum + account.total_value
+          : sum - account.total_value;
+      }, 0);
+    const workingCapitalRatio = (assets / liabilities) * 100 || 0;
+    expect(workingCapitalRatio).toBe(200)
     });
   });
 });
