@@ -20,7 +20,7 @@ const grossProfitMargin = (() => {
 })();
 
 // calculate net profit margin
-const netProfitMargin = ((expenses - revenue) / revenue) * 100 || 0;
+const netProfitMargin = ((revenue - expenses) / revenue) * 100 || 0;
 
 // calculate working capital ratio
 const workingCapitalRatio = (() => {
